@@ -1,0 +1,11 @@
+D:\Desktop\ReviewBot\backend\.venv\Lib\site-packages\langgraph\checkpoint\base\__init__.py:18: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+INFO:     Started server process [21816]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51886 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51888 - "GET /api/review/stream?pr_url=https://github.com/psf/requests/pull/7502 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58583 - "GET /api/repo/psf/requests/trend HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58586 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58589 - "GET /api/repo/psf/requests/trend HTTP/1.1" 404 Not Found
