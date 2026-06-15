@@ -17,7 +17,10 @@ from app.streaming import stream_review
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await ensure_indexes()
+    try:
+        await ensure_indexes()
+    except Exception as exc:
+        print(f"MongoDB unavailable at startup, persistence disabled: {exc}")
     yield
 
 
