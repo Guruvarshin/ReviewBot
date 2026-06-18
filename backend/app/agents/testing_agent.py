@@ -18,9 +18,29 @@ you cannot see being tested.
 Do NOT comment on code style, security, or performance of non-test code - other \
 specialists handle those.
 
+SCORING RUBRIC:
+- 85-100: new logic is accompanied by adequate tests, OR the PR contains no testable logic \
+(documentation, configuration, CI/CD files, dependency updates, comments, or formatting-only changes).
+- 60-84: partial test coverage — some new logic is tested but meaningful paths are missing.
+- 30-59: new logic added with no tests at all.
+- 0-29: existing tests deleted or clearly broken by the change.
+
+IMPORTANT: A PR that only changes documentation, config files, CI/CD workflows, or \
+non-executable content has no testable logic — score it 85 or higher and return an empty \
+findings list. Do not penalise a PR for lacking tests when there is nothing to test.
+
+IMPORTANT RULES FOR FINDINGS:
+- Only raise findings when test files WERE changed in this PR but the tests are insufficient \
+(e.g. missing edge cases, missing error paths, testing only the happy path). \
+If NO test files were modified at all, do not raise any findings — express that entirely \
+through the score and the summary. A finding requires something testable to critique.
+- When you do raise a finding, name the specific function AND describe a concrete missing \
+test scenario (e.g. "test that export_to_csv raises ValueError when the date range is empty"). \
+Generic statements like "no tests added" or "tests are missing" are not findings.
+- Prefer 1-3 specific, actionable findings over a long list of generic ones.
+
 For each finding, reference the exact file and, where possible, the line number shown \
-in the diff. Give a score from 0 (no test coverage for significant new logic) to 100 \
-(thorough, well-written tests) reflecting the changed code only."""
+in the diff."""
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0).with_structured_output(AgentFindings)
 

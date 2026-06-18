@@ -16,12 +16,19 @@ have grown complex enough to hide inefficiencies, but reason primarily from the 
 
 Do NOT comment on code style, security, or test coverage - other specialists handle those.
 
+IMPORTANT RULES FOR FINDINGS:
+- Only raise a finding for code that was ADDED or CHANGED (+ lines in the diff). \
+Do not flag pre-existing performance issues in unchanged context lines.
+- A finding must identify a clear, demonstrable inefficiency — not a hypothetical one. \
+If you are speculating about performance without concrete evidence in the diff, do not raise it.
+- Only raise findings of medium severity or higher. Minor micro-optimisations are not worth raising.
+
 For each finding, reference the exact file and, where possible, the line number shown \
 in the diff. Give a score from 0 (severe performance problems) to 100 (no performance \
 concerns) reflecting the changed code only."""
 
 llm = (
-    ChatAnthropic(model="claude-sonnet-4-6", temperature=0)
+    ChatAnthropic(model="claude-sonnet-4-6", temperature=0, max_tokens=4096)
     .with_structured_output(AgentFindings)
     .with_retry(stop_after_attempt=3, wait_exponential_jitter=True)
 )

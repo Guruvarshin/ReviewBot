@@ -1,0 +1,678 @@
+{
+  "golden": [
+    {
+      "case_id": "hardcoded_secret",
+      "description": "PR adding a literal API secret directly in source code",
+      "pr_url": "https://github.com/mpirnat/lets-be-bad-guys/pull/7",
+      "latency_seconds": 26.89,
+      "scores": {
+        "performance": 100,
+        "quality": 100,
+        "security": 30,
+        "testing": 85,
+        "overall": 35
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "security",
+            "keywords": [
+              "hardcoded",
+              "secret",
+              "credential",
+              "api",
+              "password"
+            ],
+            "min_severity": "high"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "security": {
+          "actual": 30,
+          "bounds": {
+            "max": 50
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 35,
+          "bounds": {
+            "max": 60
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "security": {
+          "total": 2,
+          "false_positive_rate": 0.5,
+          "precision": 0.5,
+          "mean_quality_score": 86.1,
+          "mean_accuracy": 2.5,
+          "mean_actionability": 2.0
+        }
+      },
+      "overall_precision": 0.5,
+      "passed": true
+    },
+    {
+      "case_id": "sql_injection",
+      "description": "PR introducing SQL injection via f-string and XSS via raw HTML rendering",
+      "pr_url": "https://github.com/anxolerd/dvpwa/pull/59",
+      "latency_seconds": 70.38,
+      "scores": {
+        "performance": 72,
+        "quality": 85,
+        "security": 2,
+        "testing": 85,
+        "overall": 5
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "security",
+            "keywords": [
+              "sql",
+              "injection",
+              "f-string",
+              "format",
+              "unsanitized",
+              "xss",
+              "html"
+            ],
+            "min_severity": "high"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "security": {
+          "actual": 2,
+          "bounds": {
+            "max": 45
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 5,
+          "bounds": {
+            "max": 60
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 2,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 77.8,
+          "mean_accuracy": 2.5,
+          "mean_actionability": 2.0
+        },
+        "quality": {
+          "total": 2,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 52.8,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 1.5
+        },
+        "security": {
+          "total": 11,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 92.9,
+          "mean_accuracy": 2.64,
+          "mean_actionability": 2.0
+        }
+      },
+      "overall_precision": 0.667,
+      "passed": true
+    },
+    {
+      "case_id": "reflected_xss",
+      "description": "PR adding a Flask route with reflected XSS: return f'<h1>Hello {name}</h1>'",
+      "pr_url": "https://github.com/anxolerd/dvpwa/pull/44",
+      "latency_seconds": 43.31,
+      "scores": {
+        "performance": 88,
+        "quality": 85,
+        "security": 10,
+        "testing": 85,
+        "overall": 12
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "security",
+            "keywords": [
+              "xss",
+              "cross-site",
+              "reflected",
+              "html",
+              "escape",
+              "sanitize",
+              "inject"
+            ],
+            "min_severity": "high"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "security": {
+          "actual": 10,
+          "bounds": {
+            "max": 45
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 12,
+          "bounds": {
+            "max": 60
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 1,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 83.3,
+          "mean_accuracy": 3.0,
+          "mean_actionability": 2.0
+        },
+        "quality": {
+          "total": 2,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 41.7,
+          "mean_accuracy": 1.5,
+          "mean_actionability": 1.5
+        },
+        "security": {
+          "total": 5,
+          "false_positive_rate": 0.2,
+          "precision": 0.8,
+          "mean_quality_score": 78.9,
+          "mean_accuracy": 2.6,
+          "mean_actionability": 1.8
+        }
+      },
+      "overall_precision": 0.6,
+      "passed": true
+    },
+    {
+      "case_id": "no_tests",
+      "description": "PR adding new Python endpoint and deployment logic with zero test file changes",
+      "pr_url": "https://github.com/erev0s/VAmPI/pull/73",
+      "latency_seconds": 56.39,
+      "scores": {
+        "performance": 88,
+        "quality": 85,
+        "security": 62,
+        "testing": 85,
+        "overall": 62
+      },
+      "recall": 0.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "testing",
+            "keywords": [
+              "test",
+              "coverage",
+              "missing",
+              "untested",
+              "no test"
+            ],
+            "min_severity": "medium"
+          },
+          "found": false
+        }
+      ],
+      "calibration_passed": false,
+      "calibration": {
+        "testing": {
+          "actual": 85,
+          "bounds": {
+            "max": 60
+          },
+          "passed": false
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 2,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 86.1,
+          "mean_accuracy": 2.5,
+          "mean_actionability": 2.0
+        },
+        "quality": {
+          "total": 3,
+          "false_positive_rate": 0.667,
+          "precision": 0.333,
+          "mean_quality_score": 38.9,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 1.33
+        },
+        "security": {
+          "total": 8,
+          "false_positive_rate": 0.375,
+          "precision": 0.625,
+          "mean_quality_score": 79.9,
+          "mean_accuracy": 2.5,
+          "mean_actionability": 1.75
+        }
+      },
+      "overall_precision": 0.653,
+      "passed": false
+    },
+    {
+      "case_id": "well_tested",
+      "description": "PR adding Tags CRUD REST API with 23 tests and claimed 100% coverage",
+      "pr_url": "https://github.com/miguelgrinberg/flasky/pull/576",
+      "latency_seconds": 49.45,
+      "scores": {
+        "performance": 78,
+        "quality": 85,
+        "security": 72,
+        "testing": 85,
+        "overall": 65
+      },
+      "recall": 1.0,
+      "recall_details": [],
+      "calibration_passed": true,
+      "calibration": {
+        "testing": {
+          "actual": 85,
+          "bounds": {
+            "min": 70
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 65,
+          "bounds": {
+            "min": 65
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 3,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 100.0,
+          "mean_accuracy": 3.0,
+          "mean_actionability": 2.0
+        },
+        "quality": {
+          "total": 3,
+          "false_positive_rate": 0.667,
+          "precision": 0.333,
+          "mean_quality_score": 33.3,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 1.0
+        },
+        "security": {
+          "total": 6,
+          "false_positive_rate": 0.5,
+          "precision": 0.5,
+          "mean_quality_score": 70.4,
+          "mean_accuracy": 2.33,
+          "mean_actionability": 1.5
+        },
+        "testing": {
+          "total": 3,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 64.8,
+          "mean_accuracy": 1.33,
+          "mean_actionability": 2.0
+        }
+      },
+      "overall_precision": 0.708,
+      "passed": true
+    },
+    {
+      "case_id": "partial_coverage",
+      "description": "PR adding analytics/export service with tests covering only some of the new logic",
+      "pr_url": "https://github.com/miguelgrinberg/flasky/pull/575",
+      "latency_seconds": 56.8,
+      "scores": {
+        "performance": 38,
+        "quality": 85,
+        "security": 30,
+        "testing": 60,
+        "overall": 28
+      },
+      "recall": 1.0,
+      "recall_details": [],
+      "calibration_passed": true,
+      "calibration": {
+        "testing": {
+          "actual": 60,
+          "bounds": {
+            "min": 40,
+            "max": 90
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 28,
+          "bounds": {
+            "min": 20
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 5,
+          "false_positive_rate": 0.2,
+          "precision": 0.8,
+          "mean_quality_score": 78.9,
+          "mean_accuracy": 2.6,
+          "mean_actionability": 1.8
+        },
+        "quality": {
+          "total": 3,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 33.3,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 1.0
+        },
+        "security": {
+          "total": 7,
+          "false_positive_rate": 0.143,
+          "precision": 0.857,
+          "mean_quality_score": 86.5,
+          "mean_accuracy": 2.43,
+          "mean_actionability": 2.0
+        },
+        "testing": {
+          "total": 3,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 77.8,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 2.0
+        }
+      },
+      "overall_precision": 0.664,
+      "passed": true
+    },
+    {
+      "case_id": "clean_pr",
+      "description": "Tiny docs-only fix (2 lines) in a mature library \u2014 should score high everywhere",
+      "pr_url": "https://github.com/psf/requests/pull/519",
+      "latency_seconds": 14.02,
+      "scores": {
+        "performance": 100,
+        "quality": 100,
+        "security": 100,
+        "testing": 85,
+        "overall": 97
+      },
+      "recall": 1.0,
+      "recall_details": [],
+      "calibration_passed": true,
+      "calibration": {
+        "overall": {
+          "actual": 97,
+          "bounds": {
+            "min": 70
+          },
+          "passed": true
+        },
+        "security": {
+          "actual": 100,
+          "bounds": {
+            "min": 75
+          },
+          "passed": true
+        },
+        "testing": {
+          "actual": 85,
+          "bounds": {
+            "min": 75
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {},
+      "overall_precision": 1.0,
+      "passed": true
+    },
+    {
+      "case_id": "dependency_update",
+      "description": "PR adding a single dependency to requirements.txt \u2014 no code logic changed",
+      "pr_url": "https://github.com/NetSPI/django.nV/pull/75",
+      "latency_seconds": 28.52,
+      "scores": {
+        "performance": 95,
+        "quality": 100,
+        "security": 30,
+        "testing": 85,
+        "overall": 28
+      },
+      "recall": 1.0,
+      "recall_details": [],
+      "calibration_passed": false,
+      "calibration": {
+        "testing": {
+          "actual": 85,
+          "bounds": {
+            "min": 75
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 28,
+          "bounds": {
+            "min": 30
+          },
+          "passed": false
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 1,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 72.2,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 2.0
+        },
+        "security": {
+          "total": 2,
+          "false_positive_rate": 0.5,
+          "precision": 0.5,
+          "mean_quality_score": 86.1,
+          "mean_accuracy": 2.5,
+          "mean_actionability": 2.0
+        }
+      },
+      "overall_precision": 0.75,
+      "passed": false
+    },
+    {
+      "case_id": "complex_with_tests",
+      "description": "Django model refactor with new business logic and corresponding tests",
+      "pr_url": "https://github.com/archlinux/archweb/pull/711",
+      "latency_seconds": 41.69,
+      "scores": {
+        "performance": 72,
+        "quality": 85,
+        "security": 90,
+        "testing": 60,
+        "overall": 62
+      },
+      "recall": 1.0,
+      "recall_details": [],
+      "calibration_passed": true,
+      "calibration": {
+        "testing": {
+          "actual": 60,
+          "bounds": {
+            "min": 60
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 62,
+          "bounds": {
+            "min": 55
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 3,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 70.4,
+          "mean_accuracy": 2.33,
+          "mean_actionability": 1.67
+        },
+        "quality": {
+          "total": 3,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 42.6,
+          "mean_accuracy": 1.33,
+          "mean_actionability": 1.0
+        },
+        "security": {
+          "total": 4,
+          "false_positive_rate": 0.75,
+          "precision": 0.25,
+          "mean_quality_score": 72.2,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 1.25
+        },
+        "testing": {
+          "total": 2,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 72.2,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 2.0
+        }
+      },
+      "overall_precision": 0.562,
+      "passed": true
+    },
+    {
+      "case_id": "auth_bypass",
+      "description": "PR exposing authorization bypass \u2014 reads user from request after auth check using different user",
+      "pr_url": "https://github.com/NetSPI/django.nV/pull/86",
+      "latency_seconds": 32.77,
+      "scores": {
+        "performance": 97,
+        "quality": 85,
+        "security": 2,
+        "testing": 85,
+        "overall": 5
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "security",
+            "keywords": [
+              "authorization",
+              "auth",
+              "bypass",
+              "path traversal",
+              "injection",
+              "traversal",
+              "request"
+            ],
+            "min_severity": "medium"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "security": {
+          "actual": 2,
+          "bounds": {
+            "max": 65
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "quality": {
+          "total": 2,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 55.6,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 1.0
+        },
+        "security": {
+          "total": 4,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 100.0,
+          "mean_accuracy": 3.0,
+          "mean_actionability": 2.0
+        }
+      },
+      "overall_precision": 0.5,
+      "passed": true
+    }
+  ],
+  "consistency": [
+    {
+      "pr_url": "https://github.com/anxolerd/dvpwa/pull/59",
+      "error": "Server disconnected without sending a response."
+    },
+    {
+      "pr_url": "https://github.com/psf/requests/pull/519",
+      "run1_scores": {
+        "performance": 100,
+        "quality": 100,
+        "security": 100,
+        "testing": 85,
+        "overall": 97
+      },
+      "run2_scores": {
+        "performance": 100,
+        "quality": 100,
+        "security": 100,
+        "testing": 85,
+        "overall": 97
+      },
+      "variance": {
+        "security": 0,
+        "performance": 0,
+        "quality": 0,
+        "testing": 0,
+        "overall": 0
+      },
+      "max_variance": 0,
+      "passed": true
+    }
+  ]
+}

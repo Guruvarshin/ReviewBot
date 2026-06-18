@@ -20,7 +20,7 @@ severity security findings, since a severe security issue should dominate an oth
 clean PR."""
 
 llm = (
-    ChatAnthropic(model="claude-sonnet-4-6", temperature=0)
+    ChatAnthropic(model="claude-sonnet-4-6", temperature=0, max_tokens=4096)
     .with_structured_output(SynthesisOutput)
     .with_retry(stop_after_attempt=3, wait_exponential_jitter=True)
 )

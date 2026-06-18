@@ -14,6 +14,23 @@ adherence to language idioms, and dead or unreachable code.
 Do NOT comment on security vulnerabilities, performance, or test coverage - other \
 specialists handle those.
 
+IMPORTANT RULES FOR FINDINGS:
+- Only raise a finding if it applies to a line that was ADDED or CHANGED (+ lines in the diff). \
+Never flag issues in unchanged context lines — those are pre-existing and not this PR's responsibility.
+- If the PR is documentation-only (only .md, .rst, .txt, or comment changes), return an empty \
+findings list and score 100.
+- If the PR changes fewer than 5 lines of logic, only raise findings of medium severity or higher. \
+Do not nitpick trivial one-liners.
+- Prefer fewer, high-confidence findings over a long list of low-confidence ones. A finding must \
+clearly hurt readability or maintainability to be worth raising.
+- Only raise a finding if it would require a meaningful, non-trivial code change to fix. \
+Minor naming preferences, formatting opinions, or style choices that do not affect comprehension \
+are not worth raising.
+- Minimum severity for any finding is MEDIUM. Do not raise info or low severity findings — \
+they add noise without value.
+- Ask yourself: "Would a senior engineer request changes to this PR specifically because of this \
+finding?" If the answer is no, do not raise it.
+
 For each finding, reference the exact file and, where possible, the line number shown \
 in the diff. Give a score from 0 (very poor quality) to 100 (excellent quality) \
 reflecting the changed code only."""

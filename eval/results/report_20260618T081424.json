@@ -1,0 +1,346 @@
+{
+  "golden": [
+    {
+      "case_id": "hardcoded_secret",
+      "description": "PR that adds a literal API secret directly in source code",
+      "pr_url": "https://github.com/mpirnat/lets-be-bad-guys/pull/7",
+      "latency_seconds": 22.8,
+      "scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 20,
+        "testing": 0,
+        "overall": 15
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "security",
+            "keywords": [
+              "hardcoded",
+              "secret",
+              "credential",
+              "api",
+              "password"
+            ],
+            "min_severity": "high"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "security": {
+          "actual": 20,
+          "bounds": {
+            "max": 50
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 15,
+          "bounds": {
+            "max": 60
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "quality": {
+          "total": 4,
+          "false_positive_rate": 0.75,
+          "precision": 0.25,
+          "mean_quality_score": 45.8,
+          "mean_accuracy": 2.25,
+          "mean_actionability": 0.25
+        },
+        "security": {
+          "total": 2,
+          "false_positive_rate": 0.5,
+          "precision": 0.5,
+          "mean_quality_score": 91.7,
+          "mean_accuracy": 3.0,
+          "mean_actionability": 1.5
+        },
+        "testing": {
+          "total": 2,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 19.4,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 0.5
+        }
+      },
+      "overall_precision": 0.25,
+      "passed": true
+    },
+    {
+      "case_id": "sql_injection",
+      "description": "PR that introduces SQL injection via f-string in search_by_name and XSS via raw HTML rendering",
+      "pr_url": "https://github.com/anxolerd/dvpwa/pull/59",
+      "latency_seconds": 68.69,
+      "scores": {
+        "performance": 72,
+        "quality": 75,
+        "security": 2,
+        "testing": 0,
+        "overall": 2
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "security",
+            "keywords": [
+              "sql",
+              "injection",
+              "f-string",
+              "format",
+              "unsanitized",
+              "xss",
+              "html"
+            ],
+            "min_severity": "high"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "security": {
+          "actual": 2,
+          "bounds": {
+            "max": 45
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 2,
+          "bounds": {
+            "max": 60
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 4,
+          "false_positive_rate": 0.25,
+          "precision": 0.75,
+          "mean_quality_score": 77.8,
+          "mean_accuracy": 1.75,
+          "mean_actionability": 1.75
+        },
+        "quality": {
+          "total": 7,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 40.5,
+          "mean_accuracy": 0.86,
+          "mean_actionability": 0.86
+        },
+        "security": {
+          "total": 11,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 94.9,
+          "mean_accuracy": 2.82,
+          "mean_actionability": 2.0
+        },
+        "testing": {
+          "total": 4,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 38.9,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 1.0
+        }
+      },
+      "overall_precision": 0.438,
+      "passed": true
+    },
+    {
+      "case_id": "no_tests",
+      "description": "PR adding new Python endpoint and deployment logic with zero test file changes",
+      "pr_url": "https://github.com/erev0s/VAmPI/pull/73",
+      "latency_seconds": 45.76,
+      "scores": {
+        "performance": 82,
+        "quality": 85,
+        "security": 62,
+        "testing": 0,
+        "overall": 38
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "testing",
+            "keywords": [
+              "test",
+              "coverage",
+              "missing",
+              "untested",
+              "no test"
+            ],
+            "min_severity": "medium"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "testing": {
+          "actual": 0,
+          "bounds": {
+            "max": 60
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "performance": {
+          "total": 4,
+          "false_positive_rate": 0.5,
+          "precision": 0.5,
+          "mean_quality_score": 75.0,
+          "mean_accuracy": 2.25,
+          "mean_actionability": 1.5
+        },
+        "quality": {
+          "total": 7,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 39.7,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 1.0
+        },
+        "security": {
+          "total": 6,
+          "false_positive_rate": 0.167,
+          "precision": 0.833,
+          "mean_quality_score": 81.5,
+          "mean_accuracy": 2.33,
+          "mean_actionability": 1.83
+        },
+        "testing": {
+          "total": 1,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 38.9,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 1.0
+        }
+      },
+      "overall_precision": 0.333,
+      "passed": true
+    },
+    {
+      "case_id": "clean_pr",
+      "description": "Tiny docs-only fix (2 lines) in a mature, well-tested library \u2014 should score high",
+      "pr_url": "https://github.com/psf/requests/pull/519",
+      "latency_seconds": 19.56,
+      "scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 100,
+        "testing": 0,
+        "overall": 88
+      },
+      "recall": 1.0,
+      "recall_details": [],
+      "calibration_passed": true,
+      "calibration": {
+        "overall": {
+          "actual": 88,
+          "bounds": {
+            "min": 70
+          },
+          "passed": true
+        },
+        "security": {
+          "actual": 100,
+          "bounds": {
+            "min": 75
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "quality": {
+          "total": 3,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 22.2,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 0.0
+        },
+        "testing": {
+          "total": 1,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 55.6,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 0.0
+        }
+      },
+      "overall_precision": 0.0,
+      "passed": true
+    }
+  ],
+  "consistency": [
+    {
+      "pr_url": "https://github.com/anxolerd/dvpwa/pull/59",
+      "run1_scores": {
+        "performance": 72,
+        "quality": 75,
+        "security": 2,
+        "testing": 0,
+        "overall": 2
+      },
+      "run2_scores": {
+        "performance": 72,
+        "quality": 75,
+        "security": 2,
+        "testing": 0,
+        "overall": 4
+      },
+      "variance": {
+        "security": 0,
+        "performance": 0,
+        "quality": 0,
+        "testing": 0,
+        "overall": 2
+      },
+      "max_variance": 2,
+      "passed": true
+    },
+    {
+      "pr_url": "https://github.com/psf/requests/pull/519",
+      "run1_scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 100,
+        "testing": 0,
+        "overall": 88
+      },
+      "run2_scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 100,
+        "testing": 0,
+        "overall": 88
+      },
+      "variance": {
+        "security": 0,
+        "performance": 0,
+        "quality": 0,
+        "testing": 0,
+        "overall": 0
+      },
+      "max_variance": 0,
+      "passed": true
+    }
+  ]
+}

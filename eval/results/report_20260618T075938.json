@@ -1,0 +1,171 @@
+{
+  "golden": [
+    {
+      "case_id": "hardcoded_secret",
+      "description": "PR that adds a literal API secret directly in source code",
+      "pr_url": "https://github.com/mpirnat/lets-be-bad-guys/pull/7",
+      "latency_seconds": 26.92,
+      "scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 30,
+        "testing": 0,
+        "overall": 18
+      },
+      "recall": 1.0,
+      "recall_details": [
+        {
+          "expected": {
+            "dimension": "security",
+            "keywords": [
+              "hardcoded",
+              "secret",
+              "credential",
+              "api",
+              "password"
+            ],
+            "min_severity": "high"
+          },
+          "found": true
+        }
+      ],
+      "calibration_passed": true,
+      "calibration": {
+        "security": {
+          "actual": 30,
+          "bounds": {
+            "max": 50
+          },
+          "passed": true
+        },
+        "overall": {
+          "actual": 18,
+          "bounds": {
+            "max": 60
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "quality": {
+          "total": 5,
+          "false_positive_rate": 0.6,
+          "precision": 0.4,
+          "mean_quality_score": 41.1,
+          "mean_accuracy": 1.6,
+          "mean_actionability": 0.6
+        },
+        "security": {
+          "total": 2,
+          "false_positive_rate": 0.0,
+          "precision": 1.0,
+          "mean_quality_score": 91.7,
+          "mean_accuracy": 3.0,
+          "mean_actionability": 2.0
+        },
+        "testing": {
+          "total": 2,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 36.1,
+          "mean_accuracy": 1.0,
+          "mean_actionability": 0.5
+        }
+      },
+      "overall_precision": 0.467,
+      "passed": true
+    },
+    {
+      "case_id": "sql_injection",
+      "error": "1 validation error for AgentFindings\nfindings\n  Field required [type=missing, input_value={'summary': 'This PR intr...plication.', 'score': 2}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing"
+    },
+    {
+      "case_id": "no_tests",
+      "error": "1 validation error for AgentFindings\nfindings\n  Field required [type=missing, input_value={'summary': \"This PR adds...EADME.md.\", 'score': 52}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing"
+    },
+    {
+      "case_id": "clean_pr",
+      "description": "Tiny docs-only fix (2 lines) in a mature, well-tested library \u2014 should score high",
+      "pr_url": "https://github.com/psf/requests/pull/519",
+      "latency_seconds": 13.81,
+      "scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 100,
+        "testing": 0,
+        "overall": 88
+      },
+      "recall": 1.0,
+      "recall_details": [],
+      "calibration_passed": true,
+      "calibration": {
+        "overall": {
+          "actual": 88,
+          "bounds": {
+            "min": 70
+          },
+          "passed": true
+        },
+        "security": {
+          "actual": 100,
+          "bounds": {
+            "min": 75
+          },
+          "passed": true
+        }
+      },
+      "precision_by_dimension": {
+        "quality": {
+          "total": 3,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 29.6,
+          "mean_accuracy": 1.67,
+          "mean_actionability": 0.0
+        },
+        "testing": {
+          "total": 1,
+          "false_positive_rate": 1.0,
+          "precision": 0.0,
+          "mean_quality_score": 55.6,
+          "mean_accuracy": 2.0,
+          "mean_actionability": 0.0
+        }
+      },
+      "overall_precision": 0.0,
+      "passed": true
+    }
+  ],
+  "consistency": [
+    {
+      "pr_url": "https://github.com/anxolerd/dvpwa/pull/59",
+      "error": "1 validation error for AgentFindings\nfindings\n  Field required [type=missing, input_value={'summary': 'This PR intr...se issues.', 'score': 2}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.10/v/missing"
+    },
+    {
+      "pr_url": "https://github.com/psf/requests/pull/519",
+      "run1_scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 100,
+        "testing": 0,
+        "overall": 88
+      },
+      "run2_scores": {
+        "performance": 100,
+        "quality": 90,
+        "security": 100,
+        "testing": 0,
+        "overall": 88
+      },
+      "variance": {
+        "security": 0,
+        "performance": 0,
+        "quality": 0,
+        "testing": 0,
+        "overall": 0
+      },
+      "max_variance": 0,
+      "passed": true
+    }
+  ]
+}

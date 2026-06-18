@@ -22,7 +22,7 @@ in the diff. Give a score from 0 (severe, exploitable vulnerabilities present) t
 (no security concerns) reflecting the changed code only."""
 
 llm = (
-    ChatAnthropic(model="claude-sonnet-4-6", temperature=0)
+    ChatAnthropic(model="claude-sonnet-4-6", temperature=0, max_tokens=4096)
     .with_structured_output(AgentFindings)
     .with_retry(stop_after_attempt=3, wait_exponential_jitter=True)
 )
